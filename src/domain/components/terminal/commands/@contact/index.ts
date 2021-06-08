@@ -7,7 +7,7 @@ const contact: ICommand = {
             "* Name: ARTISIEN Nathan",
             "* E-Mail: nathan.artisien@gmail.com",
             "* Phone: (+33) 06.47.48.02.85",
-            "* LinkedIn: https://www.linkedin.com/in/nathan-artisien-b2609813b/",
+            "* LinkedIn: https://www.linkedin.com/in/nathan-artisien/",
             "* Github: https://github.com/Eoniz/",
             "* Website: https://nathan-artisien.me/",
         ];

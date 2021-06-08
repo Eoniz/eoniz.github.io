@@ -18,6 +18,7 @@ const skills: ICommand = {
             "  - TDD / Domain Driven Design",
             "  - Agile Method",
             "  - Figma / Illustrator",
+            "  - Github Actions",
             "",
             "* Other:",
             "  - Discord.JS ( https://discord.js.org/ )",
