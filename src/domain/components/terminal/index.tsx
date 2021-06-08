@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { ICommand, ICommandResult, IStdLine, Kind, LINK_DETECTION_REGEX } from './types';
+import { ICommand, ICommandResult, IStdLine, LINK_DETECTION_REGEX } from './types';
 
 // @ts-ignore
 import minimist from "minimist-string";
@@ -32,7 +32,7 @@ const Terminal = (props: IProps) => {
                 }
             ]);
         }
-    }, []);
+    }, [props.welcomeMessage]);
 
     React.useEffect(() => {
         const div = document.getElementById("terminal-content");
@@ -40,14 +40,6 @@ const Terminal = (props: IProps) => {
             div.scrollTop = div.scrollHeight - div.clientHeight;
         }
     }, [stdout]);
-
-    const focusTerminal = () => {
-        if (!inputRef.current) {
-            return;
-        }
-
-        inputRef.current.focus();
-    };
 
     const pushToStd = (command: string, result: ICommandResult) => {
         const handledCommandResponse = handleCommandResponse(result);
@@ -119,7 +111,16 @@ const Terminal = (props: IProps) => {
             .split(" ")
             .map((part, idx) => {
                 return LINK_DETECTION_REGEX.test(part)
-                    ? <a key={idx} href={part} target="_blank">{part}</a> 
+                    ? (
+                        <a
+                            key={idx} 
+                            href={part} 
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            {part}
+                        </a>
+                    ) 
                     : part + " "
             });
         

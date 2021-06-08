@@ -19,8 +19,6 @@ Here, you'll find anything about me. To start, you can type "help" :)
 `;
 
 const App = () => {
-    const terminalRef = React.useRef(null);
-
     return (
         <div className="root">
             <Terminal
