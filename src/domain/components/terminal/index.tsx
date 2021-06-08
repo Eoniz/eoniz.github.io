@@ -22,16 +22,21 @@ const Terminal = (props: IProps) => {
     }, [props.promptLabel]);
 
     React.useEffect(() => {
-        if (props.welcomeMessage) {
-            setStdout([
-                ...stdout,
+        setStdout((s: Array<IStdLine>) => {
+            if (!props.welcomeMessage) {
+                return s;
+            }
+
+            const nextStdout: Array<IStdLine> = [
+                ...s,
                 {
                     kind: "string",
                     content: props.welcomeMessage,
                     isEcho: false
                 }
-            ]);
-        }
+            ];
+            return nextStdout;
+        });
     }, [props.welcomeMessage]);
 
     React.useEffect(() => {
