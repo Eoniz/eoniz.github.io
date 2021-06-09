@@ -48,7 +48,7 @@ const admin: ICommand = {
         }, 15000);
 
         return {
-            content: "https://media.tenor.com/images/a1505c6e6d37aa2b7c5953741c0177dc/tenor.gif",
+            content: `${process.env.PUBLIC_URL}/img/rickroll.gif`,
             kind: "gif"
         };
     },
