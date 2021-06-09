@@ -100,9 +100,7 @@ const Terminal = (props: IProps) => {
         if (e.key === "ArrowUp") {
             e.preventDefault();
 
-            console.log("last", commandHistoryIdx)
             const next = (commandHistoryIdx + 1 >= commandHistory.length) ? commandHistory.length - 1 : commandHistoryIdx + 1;
-            console.log(next, commandHistory);
             inputRef.current.value = commandHistory[next];
             setCommandHistoryIdx(next);
 
@@ -113,7 +111,6 @@ const Terminal = (props: IProps) => {
             e.preventDefault();
 
             const next = (commandHistoryIdx - 1 < 0) ? 0 : commandHistoryIdx - 1;
-            console.log(next, commandHistory);
             inputRef.current.value = commandHistory[next];
             setCommandHistoryIdx(next);
 
