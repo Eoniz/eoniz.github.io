@@ -3,12 +3,14 @@ export type Kind = "string" | "img" | "gif" | "clear-img";
 export type ICommandResult = string | {
     kind: Kind;
     content: string;
+    meta?: Record<string, any>;
 };
 
 export interface IStdLine {
     content: string;
     isEcho: boolean;
     kind: Kind;
+    meta?: Record<string, any>;
 }
 
 export interface ICommandUtils {

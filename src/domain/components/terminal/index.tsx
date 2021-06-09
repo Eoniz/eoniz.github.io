@@ -89,6 +89,7 @@ const Terminal = (props: IProps) => {
             content: result.content,
             kind: result.kind,
             isEcho: false,
+            meta: result.meta
         }
     }
 
@@ -239,13 +240,24 @@ const Terminal = (props: IProps) => {
             }
 
             if (line.kind === "gif") {
+                let width = 610;
+                let height = 610;
+
+                if (line.meta) {
+                    if ("width" in line.meta) {
+                        width = line.meta["width"];
+                    }
+                    if ("height" in line.meta) {
+                        height = line.meta["height"];
+                    }
+                }
                 return (
                     <div key={id} className="line">
                         <img
                             src={line.content}
                             alt="gif"
-                            width={610}
-                            height={610}
+                            width={width}
+                            height={height}
                         />
                     </div>
                 )

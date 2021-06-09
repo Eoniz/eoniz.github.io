@@ -10,6 +10,7 @@ import fortyTwo from "./@42";
 import admin from "./@admin";
 import cat from "./@cat";
 import dog from "./@dog";
+import amirich from "./@amirich";
 
 const commands: Record<string, ICommand> = {
     [admin.name]: admin,
@@ -23,6 +24,7 @@ const commands: Record<string, ICommand> = {
     [picture.name]: picture,
     [cat.name]: cat,
     [dog.name]: dog,
+    [amirich.name]: amirich,
 };
 
 export default commands;
