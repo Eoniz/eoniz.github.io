@@ -6,10 +6,10 @@ const bio: ICommand = {
         const lines: Array<string> = [
             "Hello !",
             "My name is Nathan, and I am from {#C778C1}Paris, France{/#C778C1}.",
-            "I'm currently working as a {#FFCB6B}Full stack Developer{/#FFCB6B} at {#C778C1}Orness and Société Générale{/#C778C1}.",
-            "I have been working 2 years with {#FFCB6B}Python{/#FFCB6B}, {#FFCB6B}FastAPI{/#FFCB6B}, {#FFCB6B}React{/#FFCB6B}, {#FFCB6B}Redux{/#FFCB6B}, {#FFCB6B}TypeScript{/#FFCB6B} and {#FFCB6B}JavaScript{/#FFCB6B} with a focus on {#FFCB6B}APIs{/#FFCB6B} and {#FFCB6B}FrontEnds{/#FFCB6B}.",
+            "I'm currently working as a {#79DDD9}Full Stack Developer{/#79DDD9} at {#C778C1}Orness{/#C778C1} and {#C778C1}Société Générale{/#C778C1}.",
+            "I have been working 3 years with {#79DDD9}Python{/#79DDD9}, {#79DDD9}FastAPI{/#79DDD9}, {#79DDD9}React{/#79DDD9}, {#79DDD9}Redux{/#79DDD9}, {#79DDD9}TypeScript{/#79DDD9} and {#79DDD9}JavaScript{/#79DDD9} with a focus on {#79DDD9}APIs{/#79DDD9} and {#79DDD9}FrontEnds{/#79DDD9}.",
             "I enjoy reading, learning new stuff and globally, the crypto world and the tech world :)",
-            "Feel free to {#FFCB6B}contact me{/#FFCB6B} ! I will be glad to discuss with you !"
+            "Feel free to {#FFCB6B}contact{/#FFCB6B} me ! I will be glad to discuss with you !"
         ];
 
         return lines.join("\n");

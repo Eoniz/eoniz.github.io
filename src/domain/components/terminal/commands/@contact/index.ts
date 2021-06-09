@@ -4,12 +4,14 @@ const contact: ICommand = {
     description: "Show my contact",
     execute: async () => {
         const lines: Array<string> = [
-            "{#C778C1}* Name:{/#C778C1} ARTISIEN Nathan",
-            "{#C778C1}* E-Mail:{/#C778C1} nathan.artisien@gmail.com",
-            "{#C778C1}* Phone:{/#C778C1} (+33) 06.47.48.02.85",
-            "{#C778C1}* LinkedIn:{/#C778C1} {link}https://www.linkedin.com/in/nathan-artisien/{/link}",
-            "{#C778C1}* Github:{/#C778C1} {link}https://github.com/Eoniz/{/link}",
-            "{#C778C1}* Website:{/#C778C1} {link}https://nathan-artisien.me/{/link}",
+            "{#79DDD9}Name{/#79DDD9}: ARTISIEN Nathan",
+            "{#79DDD9}Location{/#79DDD9}: {#C778C1}Paris, France{/#C778C1}",
+            `{#79DDD9}Age{/#79DDD9}: ${new Date().getFullYear() - 1997} years old`,
+            "{#79DDD9}E-Mail{/#79DDD9}: nathan.artisien@gmail.com",
+            "{#79DDD9}Phone{/#79DDD9}: (+33) 06.47.48.02.85",
+            "{#79DDD9}LinkedIn{/#79DDD9}: {link}https://www.linkedin.com/in/nathan-artisien/{/link}",
+            "{#79DDD9}Github{/#79DDD9}: {link}https://github.com/Eoniz/{/link}",
+            "{#79DDD9}Website{/#79DDD9}: {link}https://nathan-artisien.me/{/link}",
         ];
 
         return lines.join("\n");
