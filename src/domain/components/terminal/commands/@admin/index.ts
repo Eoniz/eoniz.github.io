@@ -42,7 +42,7 @@ const admin: ICommand = {
 
         setTimeout(() => {
             pushToStd(undefined, {
-                content: "🤡 Btw, you can stop it by typing {#FFCB6B}admin stop{/#FFCB6B} 🤡",
+                content: "🤡 Btw, you can stop it by typing {#FFCB6B}admin stop{/#FFCB6B} 🤡\nMusic by {magenta}Chips 'N Cellos{/magenta}: {link}https://www.youtube.com/watch?v=ZQo8YaG1hhs{/link}, follow him !",
                 kind: "string"
             });
         }, 15000);
