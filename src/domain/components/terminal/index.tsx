@@ -163,7 +163,7 @@ const Terminal = (props: IProps) => {
                             width={200}
                             height={200}
                             centered
-                            pixelSize={10}
+                            pixelSize={4}
                         />
                     </div>
                 )
