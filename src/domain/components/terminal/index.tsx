@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { ICommand, ICommandResult, IStdLine } from './types';
+import { limitArray } from '../../../utils/array/limited_array';
 
 // @ts-ignore
 import minimist from "minimist-string";
@@ -11,6 +12,8 @@ interface IProps {
     commands?: Record<string, ICommand>;
     welcomeMessage?: string;
 }
+
+const MAX_STD = 100;
 
 const Terminal = (props: IProps) => {
     const rootRef = useRef(null);
@@ -51,15 +54,15 @@ const Terminal = (props: IProps) => {
         const handledCommandResponse = handleCommandResponse(result);
         
         if (!command) {
-            setStdout((last) => [
+            setStdout((last) => limitArray([
                 ...last,
                 handledCommandResponse
-            ]);
+            ], MAX_STD));
 
             return;
         }
 
-        setStdout((last) => [
+        setStdout((last) => limitArray([
             ...last,
             {
                 content: command,
@@ -67,7 +70,7 @@ const Terminal = (props: IProps) => {
                 kind: "string"
             },
             handledCommandResponse
-        ]);
+        ], MAX_STD));
     };
 
     const handleCommandResponse = (result: ICommandResult): IStdLine => {
