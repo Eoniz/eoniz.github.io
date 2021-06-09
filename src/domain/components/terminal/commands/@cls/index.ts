@@ -2,7 +2,7 @@ import { ICommand } from "../../types";
 
 const cls: ICommand = {
     description: "Clear the screen",
-    execute: async (args, kwargs, stdout, setStdout) => {
+    execute: async (args, kwargs, { setStdout }) => {
         setStdout([]);
         return null;
     },

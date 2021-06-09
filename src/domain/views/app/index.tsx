@@ -14,8 +14,9 @@ const welcomeMessage = `
 *  |__|__||__|\\_| |__|  |____|\\___||____||____| |__|__|    |__|__||__|__|  |__|  |__|__||__|__||__|__|  *
 *********************************************************************************************************                                                  
 
-Welcome to my resume.
-Here, you'll find anything about me. To start, you can type "help" :)
+Welcome to my resume
+Here, you'll find anything about me. To start, you can type {#FFCB6B}help{/#FFCB6B} command
+There are hidden commands 👀 Feel free to find them 🕵️‍♂️
 `;
 
 const App = () => {

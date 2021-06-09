@@ -47,11 +47,20 @@ const Terminal = (props: IProps) => {
         }
     }, [stdout]);
 
-    const pushToStd = (command: string, result: ICommandResult) => {
+    const pushToStd = (command: string | undefined, result: ICommandResult) => {
         const handledCommandResponse = handleCommandResponse(result);
         
-        setStdout([
-            ...stdout,
+        if (!command) {
+            setStdout((last) => [
+                ...last,
+                handledCommandResponse
+            ]);
+
+            return;
+        }
+
+        setStdout((last) => [
+            ...last,
             {
                 content: command,
                 isEcho: true,
@@ -92,9 +101,12 @@ const Terminal = (props: IProps) => {
                     const command = props.commands[args[0]];
                     const result = await command.execute(
                         args, 
-                        kwargs, 
-                        stdout,
-                        setStdout
+                        kwargs,
+                        {
+                            stdOut: stdout,
+                            setStdout: setStdout,
+                            pushToStd: pushToStd
+                        }
                     );
 
                     if (result) {

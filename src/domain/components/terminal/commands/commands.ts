@@ -6,10 +6,12 @@ import experiences from "./@experiences";
 import skills from "./@skills";
 import picture from "./@picture";
 import bio from "./@bio";
+import fortyTwo from "./@42";
 
 const commands: Record<string, ICommand> = {
     [cls.name]: cls,
     [help.name]: help,
+    [fortyTwo.name]: fortyTwo,
     [bio.name]: bio,
     [contact.name]: contact,
     [experiences.name]: experiences,

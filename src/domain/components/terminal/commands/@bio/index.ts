@@ -2,7 +2,7 @@ import { ICommand } from "../../types";
 
 const bio: ICommand = {
     description: "Show my bio",
-    execute: async (args, kwargs, stdout, setStdout) => {
+    execute: async () => {
         const lines: Array<string> = [
             "Hello !",
             "My name is Nathan, and I am from {#C778C1}Paris, France{/#C778C1}.",

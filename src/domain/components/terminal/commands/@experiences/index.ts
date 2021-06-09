@@ -2,7 +2,7 @@ import { ICommand } from "../../types";
 
 const experiences: ICommand = {
     description: "Show my experiences",
-    execute: async (args, kwargs, stdout, setStdout) => {
+    execute: async () => {
         const lines: Array<string> = [
             "{#C778C1}* Orness (March 2019 -> Today):{/#C778C1}",
             "  - I was a consultant for Société Générale",

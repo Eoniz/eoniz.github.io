@@ -2,7 +2,7 @@ import { ICommand } from "../../types";
 
 const skills: ICommand = {
     description: "Show my skills",
-    execute: async (args, kwargs, stdout, setStdout) => {
+    execute: async () => {
         const lines: Array<string> = [
             "{#C778C1}* Frontend:{/#C778C1}",
             "  - Languages: JavaScript / TypeScript",

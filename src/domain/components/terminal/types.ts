@@ -11,14 +11,20 @@ export interface IStdLine {
     kind: Kind;
 }
 
+export interface ICommandUtils {
+    stdOut: Array<IStdLine>;
+    setStdout: (nextValue: Array<IStdLine>) => void;
+    pushToStd: (command: string | undefined, result: ICommandResult) => void;
+};
+
 export interface ICommand {
     name: string;
     description: string;
+    hidden?: boolean;
     execute: (
         args: string[],
         kwargs: Record<string, string>,
-        stdOut: Array<IStdLine>,
-        setStdout: (nextValue: Array<IStdLine>) => void
+        utils: ICommandUtils
     ) => Promise<ICommandResult | null>;
 };
 
