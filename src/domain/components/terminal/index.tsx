@@ -4,6 +4,7 @@ import { ICommand, ICommandResult, IStdLine, LINK_DETECTION_REGEX } from './type
 // @ts-ignore
 import minimist from "minimist-string";
 import { ImagePixelated } from "react-pixelate"
+import regexifyString from 'regexify-string';
 
 interface IProps {
     promptLabel?: string;
@@ -112,22 +113,27 @@ const Terminal = (props: IProps) => {
     };
 
     const renderContent = (content: string) => {
-        const nextContent = content
-            .split(" ")
-            .map((part, idx) => {
-                return LINK_DETECTION_REGEX.test(part)
-                    ? (
-                        <a
-                            key={idx} 
-                            href={part} 
+        const COLORS_REG = /{(.*?)}(.*?){\/(.*?)}/g;
+        const nextContent = regexifyString({
+            pattern: COLORS_REG,
+            decorator: (match, index) => {
+                const m = match.split(COLORS_REG).filter(v => v !== "");
+                if (m[0] === "link") {
+                    return (
+                        <a 
+                            href={m[1]}
                             target="_blank"
                             rel="noreferrer"
                         >
-                            {part}
+                            { m[1] }
                         </a>
-                    ) 
-                    : part + " "
-            });
+                    );
+                }
+
+                return <span style={{ color: m[0] }}>{m[1]}</span>;
+            },
+            input: content
+        });
         
         return <span>{nextContent}</span>;
     };

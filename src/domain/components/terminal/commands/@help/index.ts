@@ -10,7 +10,7 @@ const help: ICommand = {
             .sort((a, b) => b.length - a.length)[0].length;
         
         return Object.values(commands)
-            .map(cmd => `${cmd.name}${" ".repeat(maxSize - cmd.name.length)} - ${cmd.description}`)
+            .map(cmd => `{#FFCB6B}${cmd.name}{/#FFCB6B}${" ".repeat(maxSize - cmd.name.length)} - ${cmd.description}`)
             .join('\n');
     },
     name: "help",

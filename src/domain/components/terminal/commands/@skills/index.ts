@@ -4,24 +4,24 @@ const skills: ICommand = {
     description: "Show my skills",
     execute: async (args, kwargs, stdout, setStdout) => {
         const lines: Array<string> = [
-            "* Frontend:",
+            "{#C778C1}* Frontend:{/#C778C1}",
             "  - Languages: JavaScript / TypeScript",
             "  - Frameworks: React with Redux",
             "  - Styling: Sass / Css / MaterialUI / Bootstrap",
             "",
-            "* Backend:",
+            "{#C778C1}* Backend:{/#C778C1}",
             "  - Languages: Python / JavaScript / TypeScript",
             "  - Frameworks: FastAPI / NodeJS",
             "",
-            "* General:",
+            "{#C778C1}* General:{/#C778C1}",
             "  - Git / Github",
             "  - TDD / Domain Driven Design",
             "  - Agile Method",
             "  - Figma / Illustrator",
             "  - Github Actions",
             "",
-            "* Other:",
-            "  - Discord.JS ( https://discord.js.org/ )",
+            "{#C778C1}* Other:{/#C778C1}",
+            "  - Discord.JS ( {link}https://discord.js.org/{/link} )",
         ];
 
         return lines.join("\n");
