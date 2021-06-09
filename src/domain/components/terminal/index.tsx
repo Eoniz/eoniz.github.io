@@ -224,14 +224,28 @@ const Terminal = (props: IProps) => {
                 )
             }
 
+            if (line.kind === "clear-img") {
+                return (
+                    <div key={id} className="line">
+                        <img
+                            src={line.content}
+                            alt="clear img"
+                            width={300}
+                            height={300}
+                            className="terminal-img"
+                        />
+                    </div>
+                )
+            }
+
             if (line.kind === "gif") {
                 return (
                     <div key={id} className="line">
                         <img
                             src={line.content}
                             alt="gif"
-                            width={300}
-                            height={300}
+                            width={610}
+                            height={610}
                         />
                     </div>
                 )

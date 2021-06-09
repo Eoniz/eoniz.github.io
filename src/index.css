@@ -105,3 +105,9 @@ a {
 .line > canvas {
   filter: grayscale(100%);
 }
+
+.terminal-img {
+  object-fit: cover;
+  width: 300px;
+  height: 300px;
+}
