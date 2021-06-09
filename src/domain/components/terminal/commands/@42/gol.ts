@@ -60,7 +60,7 @@ class Gol {
         const neighbours = this.numberOfLivingNeighbours(cord);
         return this.isAlive(cord)
             ? neighbours > 3 || neighbours < 2 ? 0 : 1
-            : neighbours != 3 ? 0 : 1; 
+            : neighbours !== 3 ? 0 : 1; 
     }
     evolve() {
         this.current = this.current.map((column, y) => column.map((cell, x)=> this.newState({x: x, y: y})));

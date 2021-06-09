@@ -35,9 +35,9 @@ const descriptionLines: Array<string> = [
     `   {#FFCB6B}--height{/#FFCB6B} {#C778C1}{number}{/#C778C1}: Grid height (rows) {#79DDD9}(default to ${DEFAULT_HEIGHT}){/#79DDD9}.`,
     `   {#FFCB6B}--delay{/#FFCB6B} {#C778C1}{number}{/#C778C1}: Delay between each iterations in ms {#79DDD9}(default to ${DEFAULT_DELAY}){/#79DDD9}.`,
     "   ",
-    "   {#79DDD9}ex:{/#79DDD9} {#7dcc85}~${/#7dcc85} 42",
-    "   {#79DDD9}ex:{/#79DDD9} {#7dcc85}~${/#7dcc85} 42 --width 10 --height 10",
-    "   {#79DDD9}ex:{/#79DDD9} {#7dcc85}~${/#7dcc85} 42 --iterations 1 --delay 500",
+    "   {#79DDD9}ex:{/#79DDD9} {#7dcc85}~$ {/#7dcc85} 42",
+    "   {#79DDD9}ex:{/#79DDD9} {#7dcc85}~$ {/#7dcc85} 42 --width 10 --height 10",
+    "   {#79DDD9}ex:{/#79DDD9} {#7dcc85}~$ {/#7dcc85} 42 --iterations 1 --delay 500",
 ]
 
 const fortyTwo: ICommand = {
