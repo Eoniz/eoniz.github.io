@@ -17,6 +17,8 @@ const welcomeMessage = `
 Welcome to my resume
 Here, you'll find anything about me. To start, you can type {#FFCB6B}help{/#FFCB6B} command
 There are hidden commands 👀 Feel free to find them 🕵️‍♂️
+
+© ${new Date().getFullYear()} ARTISIEN Nathan - Made with {#e4cfe7}♡{/#e4cfe7}
 `;
 
 const App = () => {
