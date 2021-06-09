@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { ICommand, ICommandResult, IStdLine, LINK_DETECTION_REGEX } from './types';
+import { ICommand, ICommandResult, IStdLine } from './types';
 
 // @ts-ignore
 import minimist from "minimist-string";
