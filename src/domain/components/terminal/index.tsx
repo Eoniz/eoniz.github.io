@@ -224,6 +224,19 @@ const Terminal = (props: IProps) => {
                 )
             }
 
+            if (line.kind === "gif") {
+                return (
+                    <div key={id} className="line">
+                        <img
+                            src={line.content}
+                            alt="gif"
+                            width={300}
+                            height={300}
+                        />
+                    </div>
+                )
+            }
+
             return (
                 <React.Fragment key={id}>
                     {

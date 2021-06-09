@@ -7,8 +7,10 @@ import skills from "./@skills";
 import picture from "./@picture";
 import bio from "./@bio";
 import fortyTwo from "./@42";
+import admin from "./@admin";
 
 const commands: Record<string, ICommand> = {
+    [admin.name]: admin,
     [cls.name]: cls,
     [help.name]: help,
     [fortyTwo.name]: fortyTwo,

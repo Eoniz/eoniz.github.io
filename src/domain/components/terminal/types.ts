@@ -1,4 +1,4 @@
-export type Kind = "string" | "img";
+export type Kind = "string" | "img" | "gif";
 
 export type ICommandResult = string | {
     kind: Kind;
