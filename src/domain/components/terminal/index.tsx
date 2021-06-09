@@ -13,13 +13,16 @@ interface IProps {
     welcomeMessage?: string;
 }
 
-const MAX_STD = 100;
+const MAX_STD = 50;
+const MAX_HISTORY_SIZE = 10;
 
 const Terminal = (props: IProps) => {
     const rootRef = useRef(null);
     const inputRef = useRef<HTMLInputElement>(null);
 
     const [stdout, setStdout] = useState<Array<IStdLine>>([]);
+    const [commandHistory, setCommandHistory] = useState<Array<string>>([""]);
+    const [commandHistoryIdx, setCommandHistoryIdx] = useState<number>(0);
     
     const promptLabel = React.useMemo<string>(() => {
         return props.promptLabel || '$';
@@ -89,19 +92,53 @@ const Terminal = (props: IProps) => {
         }
     }
 
-    const handleInput = async (e: React.KeyboardEvent) => {
+    const handleInput = async (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (!inputRef.current) {
+            return;
+        }
+
+        if (e.key === "ArrowUp") {
+            e.preventDefault();
+
+            console.log("last", commandHistoryIdx)
+            const next = (commandHistoryIdx + 1 >= commandHistory.length) ? commandHistory.length - 1 : commandHistoryIdx + 1;
+            console.log(next, commandHistory);
+            inputRef.current.value = commandHistory[next];
+            setCommandHistoryIdx(next);
+
+            return;
+        }
+
+        if (e.key === "ArrowDown") {
+            e.preventDefault();
+
+            const next = (commandHistoryIdx - 1 < 0) ? 0 : commandHistoryIdx - 1;
+            console.log(next, commandHistory);
+            inputRef.current.value = commandHistory[next];
+            setCommandHistoryIdx(next);
+
             return;
         }
 
         if (e.key === "Enter") {
             e.preventDefault();
             
+            const cmdString = inputRef.current.value;
             const { _: args, ...kwargs } = minimist(inputRef.current.value);
+
+            setCommandHistory((last) => {
+                return limitArray([
+                    "",
+                    cmdString,
+                    ...last.slice(1)
+                ].reverse(), MAX_HISTORY_SIZE).reverse()
+            });
+            setCommandHistoryIdx(0);
 
             if (props.commands) {
                 if (args[0] in props.commands) {
                     const command = props.commands[args[0]];
+
                     const result = await command.execute(
                         args, 
                         kwargs,
@@ -125,6 +162,12 @@ const Terminal = (props: IProps) => {
 
             return;
         }
+    };
+
+    const handleInputChanged = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const nextHistory = [...commandHistory];
+        nextHistory[0] = e.target.value;
+        setCommandHistory(limitArray(nextHistory.reverse(), MAX_HISTORY_SIZE).reverse());
     };
 
     const renderContent = (content: string) => {
@@ -222,9 +265,12 @@ const Terminal = (props: IProps) => {
                         ref={inputRef}
                         name='terminal-input'
                         className="terminal-input"
+                        onChange={handleInputChanged}
                         onKeyDown={handleInput}
                         type='text'
-                        autoComplete='off'
+                        autoComplete="off"
+                        spellCheck={false}
+                        autoCapitalize={"off"}
                     />
                 </div>
             </div>
