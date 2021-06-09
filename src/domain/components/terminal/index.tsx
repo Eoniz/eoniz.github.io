@@ -307,6 +307,7 @@ const Terminal = (props: IProps) => {
                         autoComplete="off"
                         spellCheck={false}
                         autoCapitalize={"off"}
+                        autoFocus
                     />
                 </div>
             </div>
