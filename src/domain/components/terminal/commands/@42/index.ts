@@ -1,5 +1,5 @@
 import { ICommand } from "../../types";
-import Gol from './gol';
+import FortyTwoManager from '../utils/forty_two_manager';
 
 const clamp = (a: number, min: number, max: number) => {
     if (a < min) {
@@ -44,6 +44,15 @@ const fortyTwo: ICommand = {
     description: descriptionLines.join("\n"),
     hidden: true,
     execute: async (args, kwargs, { pushToStd }) => {
+        if (args.length === 2) {
+            if (args[1] === "stop") {
+                FortyTwoManager.getInstance().stop();
+
+                return "Done ✅"
+            }
+
+            return "Invalid command. Type {#FFCB6B}help 42{/#FFCB6B}";
+        }
         let iterations = DEFAULT_ITERATIONS;
         let width = DEFAULT_WIDTH;
         let height = DEFAULT_HEIGHT;
@@ -73,31 +82,16 @@ const fortyTwo: ICommand = {
             } catch (e) { console.error(e) };
         }
 
-        const gol = new Gol(width, height);
-        let iteration = 0;
-        const run = () => {
-            setTimeout(() => {
-                if (iteration >= iterations) {
-                    return;
-                }
+        FortyTwoManager.getInstance().reset({
+            delay: delay,
+            width: width,
+            height: height,
+            nbIterations: iterations
+        });
 
-                gol.evolve();
-                const a = gol.toString();
-                const counter = ` ${iteration + 1} / ${iterations} `;
-                const numberOfStars = Math.round(width / 2) - Math.round(counter.length / 2);
-                const head = `${"*".repeat(numberOfStars)}${counter}${"*".repeat(numberOfStars)}\n`;
-                pushToStd(undefined, {
-                    content: `${head}${a}`,
-                    kind: "string"
-                });
-                run();
-                iteration += 1;
-            }, delay);
-        };
+        FortyTwoManager.getInstance().run(pushToStd);
 
-        run();
-
-        return "👀";
+        return "⚠️ Type {#FFCB6B}42 stop{/#FFCB6B} if you want to stop at any moment ⚠️";
     },
     name: "42",
 };
