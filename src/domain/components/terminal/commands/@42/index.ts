@@ -38,6 +38,8 @@ const descriptionLines: Array<string> = [
     "   {#79DDD9}ex:{/#79DDD9} {#7dcc85}~$ {/#7dcc85} 42",
     "   {#79DDD9}ex:{/#79DDD9} {#7dcc85}~$ {/#7dcc85} 42 --width 10 --height 10",
     "   {#79DDD9}ex:{/#79DDD9} {#7dcc85}~$ {/#7dcc85} 42 --iterations 1 --delay 500",
+    "   ",
+    "   If you want to stop at any moment, type {#FFCB6B}42 stop{/#FFCB6B}",
 ]
 
 const fortyTwo: ICommand = {
